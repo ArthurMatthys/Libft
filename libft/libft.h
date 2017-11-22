@@ -24,16 +24,9 @@ typedef struct		s_list
 	struct s_list	*next;
 }					t_list;
 
-typedef struct		s_coord
-{
-	int				nbr;
-	size_t			line;
-	size_t			col;
-}					t_coord;
-
 typedef struct		s_matrix
 {
-	t_coord			p;
+	int				**tab;
 	size_t			nbrline;
 	size_t			nbrcol;
 }					t_matrix;
@@ -99,6 +92,21 @@ char				**ft_strsplit(char const *s, char c);
 t_list				*ft_lstnew(void const *content, size_t content_size);
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 
+int					ft_pow_int(int c, size_t n);
 size_t				ft_countwords(char const *s, char c);
+t_matrix			ft_creatematrix(size_t line, size_t col, int val);
+t_matrix			ft_initmatrix(int **tab, size_t line, size_t col);
+t_matrix			ft_idmatrix(size_t line);
+void				ft_printmatrix(t_matrix A);
+t_matrix			ft_addmatrix(t_matrix A, t_matrix B);
+t_matrix			ft_prodmatrix(t_matrix A, t_matrix B);
+t_matrix			ft_powmatrix(t_matrix A, size_t n);
+t_matrix			ft_prodmatrix_int(t_matrix A, int c);
+int					ft_tracematrix(t_matrix A);
+t_matrix			ft_Tmatrix(t_matrix A);
+t_matrix			ft_dvpmatrix(t_matrix A, size_t line, size_t col);
+int					ft_dvpdet(t_matrix A);
+int					ft_detmatrix(t_matrix A);
+t_matrix			ft_commatrix(t_matrix A);
 
 #endif

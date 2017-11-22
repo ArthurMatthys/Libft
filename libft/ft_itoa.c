@@ -31,10 +31,8 @@ char			*ft_itoa(int c)
 {
 	int		res;
 	size_t	i;
-	size_t	p;
 	char	*str;
 
-	p = 0;
 	i = ft_countnbr(c) + (c < 0);
 	res = c;
 	if (c == 0)

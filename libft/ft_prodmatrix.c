@@ -12,12 +12,31 @@
 
 #include "libft.h"
 
-matrix	ft_prodmatrix(matrix **A, matrix **B)
+t_matrix	ft_prodmatrix(t_matrix A, t_matrix B)
 {
-	matrix	prod;
+	t_matrix	prod;
+	size_t		i;
+	size_t		j;
+	size_t		n;
 
-	if (A->nbrline != B->nbrcol || !(A->nbrline))
-		return (NULL);
-	if (!(prod = (matrix)malloc(sizeof(matrix))))
-		return (NULL);
-
+	i = 0;
+	if (A.nbrline != B.nbrcol || !(A.nbrline))
+		return (A);
+	prod = ft_creatematrix(A.nbrline, B.nbrcol, 0);
+	while (i < A.nbrline)
+	{
+		j = 0;
+		while (j < B.nbrcol)
+		{
+			n = 0;
+			while (n < A.nbrline)
+			{
+				(prod.tab)[i][j] += (A.tab)[i][n] * (B.tab)[n][j];
+				n++;
+			}
+			j++;
+		}
+		i++;
+	}
+	return (prod);
+}
