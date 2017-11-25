@@ -1,11 +1,26 @@
+/* ************************************************************************** */
+/*                                                          LE - /            */
+/*                                                              /             */
+/*   ft_powmatrix.c                                   .::    .:/ .      .::   */
+/*                                                 +:+:+   +:    +:  +:+:+    */
+/*   By: amatthys <marvin@le-101.fr>                +:+   +:    +:    +:+     */
+/*                                                 #+#   #+    #+    #+#      */
+/*   Created: 2017/11/24 13:24:53 by amatthys     #+#   ##    ##    #+#       */
+/*   Updated: 2017/11/25 13:37:15 by amatthys    ###    #+. /#+    ###.fr     */
+/*                                                         /                  */
+/*                                                        /                   */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-t_matrix	ft_powmatrix(t_matrix A, size_t n)
+t_matrix	ft_powmatrix(t_matrix a, size_t n)
 {
+	if (a.nbrline != a.nbrcol)
+		return (ft_creatematrix(0, 0, 0));
 	if (n == 0)
-		return (ft_idmatrix(A.nbrline));
+		return (ft_idmatrix(a.nbrline));
 	else if (n == 1)
-		return (A);
+		return (a);
 	else
-		return (ft_prodmatrix(A, ft_powmatrix(A, n - 1)));
+		return (ft_prodmatrix(a, ft_powmatrix(a, n - 1)));
 }

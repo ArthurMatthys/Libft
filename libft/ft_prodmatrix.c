@@ -1,18 +1,19 @@
 /* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_prodmatrix.c                                    :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: amatthys <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/19 18:15:43 by amatthys          #+#    #+#             */
-/*   Updated: 2017/11/19 18:38:24 by amatthys         ###   ########.fr       */
-/*                                                                            */
+/*                                                          LE - /            */
+/*                                                              /             */
+/*   ft_prodmatrix.c                                  .::    .:/ .      .::   */
+/*                                                 +:+:+   +:    +:  +:+:+    */
+/*   By: amatthys <marvin@le-101.fr>                +:+   +:    +:    +:+     */
+/*                                                 #+#   #+    #+    #+#      */
+/*   Created: 2017/11/24 13:39:47 by amatthys     #+#   ##    ##    #+#       */
+/*   Updated: 2017/11/24 20:28:37 by amatthys    ###    #+. /#+    ###.fr     */
+/*                                                         /                  */
+/*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_matrix	ft_prodmatrix(t_matrix A, t_matrix B)
+t_matrix	ft_prodmatrix(t_matrix a, t_matrix b)
 {
 	t_matrix	prod;
 	size_t		i;
@@ -20,18 +21,18 @@ t_matrix	ft_prodmatrix(t_matrix A, t_matrix B)
 	size_t		n;
 
 	i = 0;
-	if (A.nbrline != B.nbrcol || !(A.nbrline))
-		return (A);
-	prod = ft_creatematrix(A.nbrline, B.nbrcol, 0);
-	while (i < A.nbrline)
+	if (a.nbrline != b.nbrcol || !(a.nbrline))
+		return (ft_creatematrix(0, 0, 0));
+	prod = ft_creatematrix(a.nbrline, b.nbrcol, 0);
+	while (i < a.nbrline)
 	{
 		j = 0;
-		while (j < B.nbrcol)
+		while (j < b.nbrcol)
 		{
 			n = 0;
-			while (n < A.nbrline)
+			while (n < a.nbrline)
 			{
-				(prod.tab)[i][j] += (A.tab)[i][n] * (B.tab)[n][j];
+				(prod.tab)[i][j] += (a.tab)[i][n] * (b.tab)[n][j];
 				n++;
 			}
 			j++;

@@ -1,13 +1,14 @@
 /* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: amatthys <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/18 14:21:41 by amatthys          #+#    #+#             */
-/*   Updated: 2017/11/19 18:31:56 by amatthys         ###   ########.fr       */
-/*                                                                            */
+/*                                                          LE - /            */
+/*                                                              /             */
+/*   libft.h                                          .::    .:/ .      .::   */
+/*                                                 +:+:+   +:    +:  +:+:+    */
+/*   By: amatthys <marvin@le-101.fr>                +:+   +:    +:    +:+     */
+/*                                                 #+#   #+    #+    #+#      */
+/*   Created: 2017/11/24 13:26:54 by amatthys     #+#   ##    ##    #+#       */
+/*   Updated: 2017/11/24 13:56:13 by amatthys    ###    #+. /#+    ###.fr     */
+/*                                                         /                  */
+/*                                                        /                   */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
@@ -97,16 +98,16 @@ size_t				ft_countwords(char const *s, char c);
 t_matrix			ft_creatematrix(size_t line, size_t col, int val);
 t_matrix			ft_initmatrix(int **tab, size_t line, size_t col);
 t_matrix			ft_idmatrix(size_t line);
-void				ft_printmatrix(t_matrix A);
-t_matrix			ft_addmatrix(t_matrix A, t_matrix B);
-t_matrix			ft_prodmatrix(t_matrix A, t_matrix B);
-t_matrix			ft_powmatrix(t_matrix A, size_t n);
-t_matrix			ft_prodmatrix_int(t_matrix A, int c);
-int					ft_tracematrix(t_matrix A);
-t_matrix			ft_Tmatrix(t_matrix A);
-t_matrix			ft_dvpmatrix(t_matrix A, size_t line, size_t col);
-int					ft_dvpdet(t_matrix A);
-int					ft_detmatrix(t_matrix A);
-t_matrix			ft_commatrix(t_matrix A);
+void				ft_printmatrix(t_matrix a);
+t_matrix			ft_addmatrix(t_matrix a, t_matrix b);
+t_matrix			ft_prodmatrix(t_matrix a, t_matrix b);
+t_matrix			ft_powmatrix(t_matrix a, size_t n);
+t_matrix			ft_prodmatrix_int(t_matrix a, int c);
+int					ft_tracematrix(t_matrix a);
+t_matrix			ft_tmatrix(t_matrix a);
+t_matrix			ft_dvpmatrix(t_matrix a, size_t line, size_t col);
+int					ft_dvpdet(t_matrix a);
+int					ft_detmatrix(t_matrix a);
+t_matrix			ft_commatrix(t_matrix a);
 
 #endif
