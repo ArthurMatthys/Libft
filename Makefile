@@ -1,16 +1,19 @@
 # **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: amatthys <marvin@42.fr>                    +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2017/11/18 17:40:49 by amatthys          #+#    #+#              #
-#    Updated: 2017/11/25 13:43:36 by amatthys    ###    #+. /#+    ###.fr      #
-#                                                                              #
+#                                                           LE - /             #
+#                                                               /              #
+#    Makefile                                         .::    .:/ .      .::    #
+#                                                  +:+:+   +:    +:  +:+:+     #
+#    By: amatthys <marvin@le-101.fr>                +:+   +:    +:    +:+      #
+#                                                  #+#   #+    #+    #+#       #
+#    Created: 2018/06/07 14:26:55 by amatthys     #+#   ##    ##    #+#        #
+#    Updated: 2018/07/22 09:54:08 by amatthys    ###    #+. /#+    ###.fr      #
+#                                                          /                   #
+#                                                         /                    #
 # **************************************************************************** #
+
 RELATIVE = .
-OBJ_PATH = .
+
+SRC_PATH = src
 
 SRC_NAME = 	ft_addmatrix.c \
 		ft_atoi.c \
@@ -21,6 +24,7 @@ SRC_NAME = 	ft_addmatrix.c \
 		ft_detmatrix.c \
 		ft_dvpdet.c \
 		ft_dvpmatrix.c \
+		ft_freetab.c \
 		ft_idmatrix.c \
 		ft_initmatrix.c \
 		ft_isalpha.c \
@@ -82,37 +86,38 @@ SRC_NAME = 	ft_addmatrix.c \
 		ft_strstr.c \
 		ft_strsub.c \
 		ft_strtrim.c \
+		ft_tablen.c \
 		ft_tmatrix.c \
 		ft_tolower.c \
 		ft_toupper.c \
-		ft_tracematrix.c
+		ft_tracematrix.c \
+		get_next_line.c \
+		get_next_line_freaddon.c \
+		is_in.c
 
-OBJ_NAME = $(SRC_NAME:.c=.o)
-SRC = $(SRC_NAME)
-OBJ = $(addprefix $(OBJ_PATH)/,$(OBJ_NAME))
+SRC = $(addprefix $(SRC_PATH)/, $(SRC_NAME))
+OBJ = $(SRC:.c=.o)
 CC = gcc
-CFLAGS = -Wall -Werror -Wextra
-INC = .
-LIBFT_PATH = .
-CPPFLAGS = -I$(INC)
-NAME = $(LIBFT_PATH)/libft.a
+CFLAGS = -g -Wall -Werror -Wextra
+INC = includes
+CPPFLAGS = -I $(INC)
+NAME = libft.a
 
 .PHONY: clean fclean all re
 
 all : $(NAME)
 
-
 $(NAME) : $(OBJ)
 		ar rc $(NAME) $(OBJ)
 		ranlib $(NAME)
 
-$(OBJ_PATH)/%.o: $(SRC_PATH)%.c $(INC)libft.h
+%.o: %.c
 		$(CC) $(CFLAGS) $(CPPFLAGS) -o $@ -c $<
 
 clean:
-		rm -f $(OBJ)
+		rm -rf $(OBJ)
 
 fclean: clean
-		rm -f $(NAME)
+		rm -rf $(NAME)
 
 re : fclean all

@@ -1,37 +1,32 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_strlcat.c                                     .::    .:/ .      .::   */
+/*   get_next_line.h                                  .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: amatthys <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2017/11/24 13:33:01 by amatthys     #+#   ##    ##    #+#       */
-/*   Updated: 2017/11/24 13:33:01 by amatthys    ###    #+. /#+    ###.fr     */
+/*   Created: 2017/12/13 12:27:35 by amatthys     #+#   ##    ##    #+#       */
+/*   Updated: 2018/07/25 16:41:55 by amatthys    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-static size_t	min(size_t a, size_t b)
+# include <unistd.h>
+# define BUFF_SIZE	666
+
+typedef struct		s_fd
 {
-	return ((a < b) ? a : b);
-}
+	int				fd;
+	int				len;
+	char			*str;
+	struct s_fd		*next;
+}					t_fd;
 
-size_t			ft_strlcat(char *dest, const char *src, size_t n)
-{
-	size_t i;
-	size_t c;
-	size_t res;
+int					get_next_line(int const fd, char **tab);
+t_fd				**get_fd(void);
+void				free_fd(void);
 
-	c = 0;
-	i = ft_strlen(dest);
-	res = ft_strlen((char *)src) + min(n, i);
-	while (src[c] != '\0' && (i + c + 1) < n)
-	{
-		dest[c + i] = src[c];
-		c++;
-	}
-	dest[i + c] = '\0';
-	return (res);
-}
+#endif

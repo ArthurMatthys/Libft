@@ -6,7 +6,7 @@
 /*   By: amatthys <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/11/24 13:26:54 by amatthys     #+#   ##    ##    #+#       */
-/*   Updated: 2017/11/24 13:56:13 by amatthys    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/07/22 09:53:52 by amatthys    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -42,13 +42,14 @@ void				ft_putchar(char c);
 void				ft_putstr(char const *s);
 void				ft_putendl(char const *s);
 void				ft_putnbr(int c);
-void				ft_putchar_fd(char c, int fd);
+void				ft_freetab(char **tab);
+int					ft_putchar_fd(char c, int fd);
 void				ft_putstr_fd(char const *s, int fd);
 void				ft_putendl_fd(char const *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
 void				ft_lstdelone(t_list **alst, void (*del)(void*, size_t));
 void				ft_lstdel(t_list **alst, void (*del)(void *, size_t));
-void				ft_lstadd(t_list **alst, t_list *new);
+void				ft_lstadd(t_list **alst, t_list *ne);
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 void				*ft_memcpy(void *dst, const void *src, size_t n);
 void				*ft_memmove(void *dst, const void *src, size_t len);
@@ -58,7 +59,7 @@ void				*ft_memchr(const void *s, int c, size_t n);
 void				*ft_memalloc(size_t size);
 int					ft_strcmp(const char *s1, const char *s2);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
-int					ft_atoi(const char *nptr);
+long long			ft_atoi(const char *nptr);
 int					ft_isalpha(int c);
 int					ft_isdigit(int c);
 int					ft_isalnum(int c);
@@ -69,8 +70,10 @@ int					ft_isascii(int c);
 int					ft_strequ(char const *s1, char const *s2);
 int					ft_strnequ(char const *s1, char const *s2, size_t n);
 int					ft_memcmp(const void *s1, const void *s2, size_t n);
+int					is_in(int t, int *tab, size_t len);
 size_t				ft_strlcat(char *dst, const char *src, size_t n);
 size_t				ft_strlen(char *str);
+size_t				ft_tablen(char **tab);
 char				*ft_strcat(char *dest, const char *src);
 char				*ft_strcpy(char *dest, const char *src);
 char				*ft_strdup(const char *s1);

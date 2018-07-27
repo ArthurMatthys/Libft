@@ -1,30 +1,24 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_strncat.c                                     .::    .:/ .      .::   */
+/*   ft_tablen.c                                      .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: amatthys <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2017/11/24 13:33:22 by amatthys     #+#   ##    ##    #+#       */
-/*   Updated: 2017/11/24 13:33:25 by amatthys    ###    #+. /#+    ###.fr     */
+/*   Created: 2018/07/20 12:22:19 by amatthys     #+#   ##    ##    #+#       */
+/*   Updated: 2018/07/20 12:25:46 by amatthys    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strncat(char *dest, const char *src, size_t n)
+size_t		ft_tablen(char **tab)
 {
-	size_t i;
-	size_t c;
+	size_t	i;
 
-	c = 0;
-	i = ft_strlen(dest);
-	while (src[c] != '\0' && c < n)
-	{
-		dest[i + c] = src[c];
-		c++;
-	}
-	dest[i + c] = 0;
-	return (dest);
+	i = 0;
+	while (tab[i])
+		i++;
+	return (i);
 }

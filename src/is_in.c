@@ -1,23 +1,28 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_memdel.c                                      .::    .:/ .      .::   */
+/*   is_in.c                                          .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: amatthys <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2017/11/24 13:30:41 by amatthys     #+#   ##    ##    #+#       */
-/*   Updated: 2017/11/24 13:30:42 by amatthys    ###    #+. /#+    ###.fr     */
+/*   Created: 2018/06/25 13:42:13 by amatthys     #+#   ##    ##    #+#       */
+/*   Updated: 2018/06/25 13:50:10 by amatthys    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_memdel(void **ap)
+int		is_in(int t, int *tab, size_t len)
 {
-	if (ap && *ap)
+	size_t	j;
+
+	j = 0;
+	while (j < len)
 	{
-		free(*ap);
-		*ap = NULL;
+		if (tab[j] == t)
+			return (1);
+		j++;
 	}
+	return (0);
 }

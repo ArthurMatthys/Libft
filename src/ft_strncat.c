@@ -1,19 +1,33 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_putchar_fd.c                                  .::    .:/ .      .::   */
+/*   ft_strncat.c                                     .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: amatthys <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2017/11/24 13:31:16 by amatthys     #+#   ##    ##    #+#       */
-/*   Updated: 2017/11/24 13:31:17 by amatthys    ###    #+. /#+    ###.fr     */
+/*   Created: 2017/11/24 13:33:22 by amatthys     #+#   ##    ##    #+#       */
+/*   Updated: 2018/07/25 14:10:12 by amatthys    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putchar_fd(char c, int fd)
+char	*ft_strncat(char *dest, const char *src, size_t n)
 {
-	write(fd, &c, 1);
+	size_t i;
+	size_t c;
+
+	c = 0;
+	if (dest)
+		i = ft_strlen(dest);
+	else
+		i = 0;
+	while (src[c] != '\0' && c < n)
+	{
+		dest[i + c] = src[c];
+		c++;
+	}
+	dest[i + c] = 0;
+	return (dest);
 }

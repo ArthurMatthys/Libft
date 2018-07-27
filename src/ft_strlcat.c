@@ -1,40 +1,37 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_atoi.c                                        .::    .:/ .      .::   */
+/*   ft_strlcat.c                                     .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: amatthys <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2017/11/24 13:27:48 by amatthys     #+#   ##    ##    #+#       */
-/*   Updated: 2017/11/24 13:27:55 by amatthys    ###    #+. /#+    ###.fr     */
+/*   Created: 2017/11/24 13:33:01 by amatthys     #+#   ##    ##    #+#       */
+/*   Updated: 2018/07/25 14:09:39 by amatthys    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_atoi(const char *nptr)
+static size_t	min(size_t a, size_t b)
 {
-	long long	i;
-	long long	res;
-	int			p;
+	return ((a < b) ? a : b);
+}
 
-	i = 0;
-	p = 1;
-	res = 0;
-	while (nptr[i] == '\n' || nptr[i] == '\t' || nptr[i] == '\v' ||
-			nptr[i] == '\f' || nptr[i] == '\r' || nptr[i] == ' ')
-		i++;
-	if (nptr[i] == '-' || nptr[i] == '+')
+size_t			ft_strlcat(char *dest, const char *src, size_t n)
+{
+	size_t i;
+	size_t c;
+	size_t res;
+
+	c = 0;
+	i = ft_strlen(dest);
+	res = ft_strlen((char *)src) + min(n, i);
+	while (src[c] != '\0' && (i + c + 1) < n)
 	{
-		if (nptr[i] == '-')
-			p = -1;
-		i++;
+		dest[c + i] = src[c];
+		c++;
 	}
-	while (nptr[i] <= '9' && nptr[i] >= '0')
-	{
-		res = res * 10 + (nptr[i] - '0');
-		i++;
-	}
-	return (res * p);
+	dest[i + c] = '\0';
+	return (res);
 }
